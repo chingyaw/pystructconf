@@ -3,7 +3,7 @@ name = "pystructconf-cli"
 version = "0.0.1"
 description = "Command-line interface for pyStructConf."
 readme = "../../README.md"
-requires-python = ">=3.9,<3.15"
+requires-python = ">=3.10,<3.14"
 license = { file = "../../LICENSE" }
 authors = [{ name = "chingyaw" }]
 dependencies = [
