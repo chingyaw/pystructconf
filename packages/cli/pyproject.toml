@@ -1,0 +1,24 @@
+[project]
+name = "pystructconf-cli"
+version = "0.0.1"
+description = "Command-line interface for pyStructConf."
+readme = "../../README.md"
+requires-python = ">=3.9,<3.15"
+license = { file = "../../LICENSE" }
+authors = [{ name = "chingyaw" }]
+dependencies = [
+  "pystructconf-core>=0.0.1",
+]
+
+[project.optional-dependencies]
+rule = ["pystructconf-rule-engine>=0.0.1"]
+
+[project.scripts]
+pystructconf = "pystructconf_cli.__main__:main"
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pystructconf_cli"]

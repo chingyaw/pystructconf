@@ -1,0 +1,23 @@
+[project]
+name = "pystructconf-integrations-fastapi"
+version = "0.0.1"
+description = "Optional FastAPI integration for pyStructConf."
+readme = "../../README.md"
+requires-python = ">=3.9,<3.15"
+license = { file = "../../LICENSE" }
+authors = [{ name = "chingyaw" }]
+dependencies = [
+  "pystructconf-core>=0.0.1",
+  "fastapi>=0.111",
+  "pydantic>=2",
+]
+
+[project.optional-dependencies]
+rule = ["pystructconf-rule-engine>=0.0.1"]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pystructconf_integrations_fastapi"]
