@@ -20,12 +20,18 @@ members = [
 
 [tool.ruff]
 line-length = 100
-target-version = "py313"
+target-version = "py310"
 
 [tool.black]
 line-length = 100
-target-version = ["py313"]
+target-version = ["py310"]
 
 [tool.mypy]
-python_version = "3.13"
+python_version = "3.10"
 strict = false
+
+[tool.uv.sources]
+pystructconf-core = { workspace = true }
+pystructconf-rule-engine = { workspace = true }
+pystructconf-cli = { workspace = true }
+pystructconf-integrations-fastapi = { workspace = true }
