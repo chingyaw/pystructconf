@@ -1,4 +1,5 @@
 name: CI
+
 on:
   push:
     branches: [ main ]
@@ -15,14 +16,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Install uv (fast resolver/installer)
       - name: Set up uv
         uses: astral-sh/setup-uv@v3
 
+      # Install the requested Python version
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
 
+      # Create a local virtual environment (.venv) for uv to use
+      - name: Create venv
+        run: uv venv
+
+      # Install all packages in editable mode into .venv
       - name: Install workspace
         run: |
           uv pip install -e ./packages/core
@@ -30,8 +38,10 @@ jobs:
           uv pip install -e ./packages/cli
           uv pip install -e ./packages/integrations-fastapi
 
+      # Install test tools into .venv
       - name: Install test tools
         run: uv pip install pytest
 
+      # Run pytest inside the .venv to ensure correct environment
       - name: Run tests
-        run: pytest -q
+        run: uv run pytest -q
