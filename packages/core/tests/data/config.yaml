@@ -1,0 +1,26 @@
+# Minimal parsing rules for M1 MVP
+# Assumption: parser reads key:value and performs basic type casting.
+parse_rules:
+  fields:
+    name:
+      source_key: "name"
+      type: "str"
+    age:
+      source_key: "age"
+      type: "int"
+    city:
+      source_key: "city"
+      type: "str"
+    joined_at:
+      source_key: "joined_at"
+      type: "date"   # For M1, keep as string; you can standardize format later.
+    active:
+      source_key: "active"
+      type: "bool"
+    height_cm:
+      source_key: "height_cm"
+      type: "float"
+
+ignore:
+  empty_lines: true
+  comment_prefix: "#"

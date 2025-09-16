@@ -6,17 +6,11 @@ requires-python = ">=3.10,<3.14"
 readme = "README.md"
 license = { file = "LICENSE" }
 
-[build-system]
-requires = ["hatchling>=1.25"]
-build-backend = "hatchling.build"
-
 [tool.uv.workspace]
-members = [
-  "packages/core",
-  "packages/rule-engine",
-  "packages/cli",
-  "packages/integrations-fastapi",
-]
+members = ["packages/*"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
 
 [tool.ruff]
 line-length = 100
