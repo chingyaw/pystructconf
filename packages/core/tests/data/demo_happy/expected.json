@@ -1,8 +1,11 @@
 {
-  "name": "Alice",
-  "age": 30,
-  "city": "San Jose",
-  "joined_at": "2024-06-01",
-  "active": true,
-  "height_cm": 165.5
+  "data": {
+    "name": "Alice",
+    "age": 30,
+    "city": "San Jose",
+    "joined_at": "2024-06-01",
+    "active": true,
+    "height_cm": 165.5
+  },
+  "errors": []
 }
