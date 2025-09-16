@@ -27,13 +27,27 @@ ignore:
 
 ## Run via Python
 ```python
-from pystructconf_core import parse_file
-print(parse_file("input.txt", "config.yaml"))
+from pystructconf_core import parse_file, parse_with_report
+
+data = parse_file("packages/core/tests/data/demo_happy/input.txt",
+                  "packages/core/tests/data/demo_happy/config.yaml")
+print(data)
+
+report = parse_with_report("packages/core/tests/data/demo_happy/input.txt",
+                           "packages/core/tests/data/demo_happy/config.yaml")
+print(report["data"], report["errors"])
+
 ```
 
 ## Run via CLI
 ```bash
-pystructconf -i input.txt -c config.yaml
+pystructconf -i packages/core/tests/data/demo_happy/input.txt \
+             -c packages/core/tests/data/demo_happy/config.yaml
+
+pystructconf -i packages/core/tests/data/demo_happy/input.txt \
+             -c packages/core/tests/data/demo_happy/config.yaml \
+             --report --fail-on-errors
+
 ```
 
 For full reports and CI-friendly failures:
