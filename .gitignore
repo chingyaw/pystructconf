@@ -1,4 +1,45 @@
+# IDE
 .idea/
+.vscode/
+
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.dist-info/
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.ruff_cache/
+.tox/
+.coverage
+htmlcov/
+.cache/
+
+# Envs & tools
+.venv/
+venv/
+.env
+.env.*
+.uv/
+
+# Build / dist
+build/
+dist/
+site/
+wheelhouse/
+pip-wheel-metadata/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Logs & misc
+*.log
+*.tmp
+*.swp
+*.swo
