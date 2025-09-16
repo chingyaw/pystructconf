@@ -21,6 +21,7 @@ Flexible text-to-structured-data toolkit with an optional rule engine. Designed 
   - [Core (contracts)](#core-contracts)
   - [CLI (skeleton)](#cli-skeleton)
   - [FastAPI Integration (skeleton)](#fastapi-integration-skeleton)
+- [Quick Usage Examples](#quick-usage-examples)
 - [Development](#development)
   - [Repo Setup](#repo-setup)
   - [Running Tests](#running-tests)
@@ -206,6 +207,36 @@ The CLI entry point is reserved at `pystructconf` (see `packages/cli/pyproject.t
 #
 # app = FastAPI()
 # app.include_router(router, prefix="/v1/structconf")
+```
+
+---
+
+## Quick Usage Examples
+
+These examples will become valid as soon as the first public parser and CLI features land in M1.
+
+### Python API
+```python
+from pystructconf_core import parse_file, parse_with_report
+
+data = parse_file("packages/core/tests/data/input.txt",
+                  "packages/core/tests/data/config.yaml")
+print(data)
+
+# Requires advanced E2E test data (provided in repository examples)
+report = parse_with_report("packages/core/tests/data/e2e_error/input.txt",
+                           "packages/core/tests/data/e2e_error/config.yaml")
+print(report["data"], report["errors"])
+```
+
+### CLI
+```bash
+# print only parsed data
+pystructconf -i packages/core/tests/data/input.txt              -c packages/core/tests/data/config.yaml
+
+# print full report and fail when errors exist
+# (example requires E2E test data in repository examples)
+pystructconf -i packages/core/tests/data/e2e_error/input.txt              -c packages/core/tests/data/e2e_error/config.yaml              --report --fail-on-errors
 ```
 
 ---
