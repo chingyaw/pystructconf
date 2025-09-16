@@ -1,0 +1,14 @@
+parse_rules:
+  fields:
+    name:
+      source_key: "name"
+      type: "str"
+      required: true
+    age:
+      source_key: "age"
+      type: "int"
+      required: true
+
+ignore:
+  empty_lines: true
+  comment_prefix: "#"

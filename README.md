@@ -213,30 +213,32 @@ The CLI entry point is reserved at `pystructconf` (see `packages/cli/pyproject.t
 
 ## Quick Usage Examples
 
-These examples will become valid as soon as the first public parser and CLI features land in M1.
+These examples work out of the box using the provided `demo_happy` test data.
 
 ### Python API
+
 ```python
 from pystructconf_core import parse_file, parse_with_report
 
-data = parse_file("packages/core/tests/data/input.txt",
-                  "packages/core/tests/data/config.yaml")
+data = parse_file("packages/core/tests/data/demo_happy/input.txt",
+                  "packages/core/tests/data/demo_happy/config.yaml")
 print(data)
 
-# Requires advanced E2E test data (provided in repository examples)
-report = parse_with_report("packages/core/tests/data/e2e_error/input.txt",
-                           "packages/core/tests/data/e2e_error/config.yaml")
+report = parse_with_report("packages/core/tests/data/demo_happy/input.txt",
+                           "packages/core/tests/data/demo_happy/config.yaml")
 print(report["data"], report["errors"])
 ```
 
 ### CLI
 ```bash
 # print only parsed data
-pystructconf -i packages/core/tests/data/input.txt              -c packages/core/tests/data/config.yaml
+pystructconf -i packages/core/tests/data/demo_happy/input.txt \
+             -c packages/core/tests/data/demo_happy/config.yaml
 
 # print full report and fail when errors exist
-# (example requires E2E test data in repository examples)
-pystructconf -i packages/core/tests/data/e2e_error/input.txt              -c packages/core/tests/data/e2e_error/config.yaml              --report --fail-on-errors
+pystructconf -i packages/core/tests/data/demo_happy/input.txt \
+             -c packages/core/tests/data/demo_happy/config.yaml \
+             --report --fail-on-errors
 ```
 
 ---
