@@ -1,6 +1,7 @@
 {
   "data": {
-    "name": "Alice"
+    "name": "Bob",
+    "age": 18
   },
-  "errors": ["Missing required field: age"]
+  "errors": []
 }

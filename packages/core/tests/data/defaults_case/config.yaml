@@ -7,7 +7,10 @@ parse_rules:
     age:
       source_key: "age"
       type: "int"
-      required: true
+      required: false
+
+defaults:
+  age: 18
 
 ignore:
   empty_lines: true

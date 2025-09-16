@@ -5,7 +5,7 @@ from pystructconf_core import parse_file
 
 
 def test_minimal_case():
-    base = Path(__file__).parent / "data"
+    base = Path(__file__).parent / "data" / "demo_happy"
     input_path = base / "input.txt"
     config_path = base / "config.yaml"
     expected_path = base / "expected.json"
@@ -13,4 +13,4 @@ def test_minimal_case():
     result = parse_file(str(input_path), str(config_path))
     expected = json.loads(expected_path.read_text(encoding="utf-8"))
 
-    assert result == expected
+    assert result == expected["data"]
